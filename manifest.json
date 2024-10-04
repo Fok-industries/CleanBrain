@@ -1,0 +1,22 @@
+// Шаг 1: manifest.json
+// Это файл, описывающий ваше расширение и предоставляющий информацию браузеру.
+
+{
+    "manifest_version": 3,
+    "name": "CleanBrain",
+    "version": "1.0",
+    "permissions": ["contextMenus", "storage", "activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    }
+  }
