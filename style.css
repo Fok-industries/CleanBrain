@@ -1,42 +1,48 @@
 /* // Шаг 6: styles.css
-// Стили для придания более красивого вида интерфейсу. */
+// Стили для придания более красивого вида интерфейса. */
 body {
   font-family: Arial, sans-serif;
   font-size: medium;
-  background-color: #f0f0f0;
+  background: linear-gradient(135deg, #1a1f36, #313860);
   margin: 0;
   padding: 0;
+  min-width: 400px;
+  min-height: 600px;
+  color: #e0e0e0; /* Цвет текста, чтобы хорошо сочетался с тёмным фоном */
 }
 
 .container {
   width: 90%;
   max-width: 600px;
+  min-height: 500px;
   margin: 20px auto;
-  background: #fff;
+  background: rgba(49, 56, 96, 0.85);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 
 h1 {
   text-align: center;
-  color: #333;
+  color: #ffffff;
 }
 
 h2 {
   text-align: center;
-  color: #666;
+  color: #beb4ce;
   font-weight: normal;
   margin-bottom: 20px;
 }
 
 .snippet-block {
-  background-color: #e7f3fe;
-  border: 1px solid #b3d4fc;
+  background-color: #3b3f51;
+  border: 1px solid #5961a3;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
   overflow-wrap: break-word;
+  color: #ffffff; /* Белый текст для хорошей читабельности */
 }
 
 .snippet-block p {
@@ -44,14 +50,14 @@ h2 {
 }
 
 .snippet-block a {
-    color: #007bff;
-    text-decoration: none;
-    word-break: break-all;
-  }
-  
-  .snippet-block a:hover {
-    text-decoration: underline;
-  }
+  color: #007bff;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.snippet-block a:hover {
+  text-decoration: underline;
+}
 
 button {
   background-color: #ff6666;
@@ -70,11 +76,18 @@ button:hover {
   display: block;
   width: 100%;
   margin-top: 20px;
-  background-color: #007bff;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .delete-all:hover {
-  background-color: #0056b3;
+  background-color:  #ff4c4c;
 }
 
 .saveSnippet {
@@ -91,10 +104,24 @@ button:hover {
   overflow-y: auto;
 }
 
-.highlighted-snippet {
-    background-color: #ae00ff;
-    padding: 2px;
-    border-radius: 3px;
-    font-weight: bold;
-  }
+.no-snippets {
+  text-align: center;
+  color: #ffffff;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.no-snippets-image {
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 200px;
+  height: auto;
+  opacity: 0.8;
   
+}
+
+.highlighted-snippet {
+  background-color: #ffff00;
+  padding: 2px;
+  border-radius: 3px;
+}
