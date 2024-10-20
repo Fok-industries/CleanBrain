@@ -1,100 +1,235 @@
-/* // Шаг 6: styles.css
-// Стили для придания более красивого вида интерфейсу. */
+/* Основные стили для всего документа */
 body {
-  font-family: Arial, sans-serif;
-  font-size: medium;
-  background-color: #f0f0f0;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif; /* Используется шрифт Arial для текста */
+  font-size: medium; /* Средний размер шрифта */
+  background: linear-gradient(135deg, #1a1f36, #313860); /* Градиентный фон от тёмно-синего до серого */
+  margin: 0; /* Убираем отступы у body */
+  padding: 0; /* Убираем внутренние отступы */
+  min-width: 400px; /* Минимальная ширина окна */
+  min-height: 600px; /* Минимальная высота окна */
+  color: #e0e0e0; /* Цвет текста, чтобы он хорошо сочетался с тёмным фоном */
 }
 
+/* Контейнер для всего содержимого расширения */
 .container {
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Контейнер занимает 90% ширины родителя */
+  max-width: 600px; /* Максимальная ширина — 600px */
+  min-height: 500px; /* Минимальная высота — 500px */
+  margin: 20px auto; /* Отступы сверху и снизу по 20px, центрирование по горизонтали */
+  background: rgba(49, 56, 96, 0.85); /* Тёмно-синий цвет с прозрачностью */
+  padding: 20px; /* Внутренний отступ 20px */
+  border-radius: 15px; /* Закругление углов контейнера */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Тень для создания объёмного эффекта */
+  position: relative; /* Для позиционирования внутри контейнера */
 }
 
+/* Заголовок первого уровня */
 h1 {
-  text-align: center;
-  color: #333;
+  text-align: center; /* Выравнивание текста по центру */
+  color: #ffffff; /* Белый цвет */
 }
 
+/* Заголовок второго уровня */
 h2 {
-  text-align: center;
-  color: #666;
-  font-weight: normal;
-  margin-bottom: 20px;
+  text-align: center; /* Выравнивание текста по центру */
+  color: #beb4ce; /* Светло-фиолетовый цвет */
+  font-weight: normal; /* Обычный вес шрифта */
+  margin-bottom: 20px; /* Отступ снизу */
 }
 
+/* Блоки для отображения сохранённых вырезок */
 .snippet-block {
-  background-color: #e7f3fe;
-  border: 1px solid #b3d4fc;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 15px;
-  overflow-wrap: break-word;
+  background-color: #3b3f51; /* Тёмно-серый цвет фона */
+  border: 1px solid #5961a3; /* Граница вокруг блока */
+  border-radius: 8px; /* Закругление углов блока */
+  padding: 15px; /* Внутренний отступ */
+  margin-bottom: 15px; /* Отступ снизу */
+  overflow-wrap: break-word; /* Перенос слов для длинного текста */
+  color: #ffffff; /* Белый цвет текста */
 }
 
+/* Стили для абзацев внутри вырезок */
 .snippet-block p {
-  margin: 5px 0;
+  margin: 5px 0; /* Отступы сверху и снизу по 5px */
 }
 
+/* Ссылки в вырезках */
 .snippet-block a {
-    color: #007bff;
-    text-decoration: none;
-    word-break: break-all;
-  }
-  
-  .snippet-block a:hover {
-    text-decoration: underline;
-  }
+  color: #007bff; /* Синий цвет ссылок */
+  text-decoration: none; /* Убираем подчёркивание у ссылок */
+  word-break: break-all; /* Перенос длинных слов */
+}
 
+.snippet-block a:hover {
+  text-decoration: underline; /* Подчёркивание при наведении на ссылку */
+}
+
+/* Общие стили для всех кнопок */
 button {
-  background-color: #ff6666;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  cursor: pointer;
+  background-color: #ff6666; /* Красный цвет фона */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругление углов кнопки */
+  padding: 8px 12px; /* Внутренний отступ */
+  cursor: pointer; /* Указатель в виде руки при наведении */
 }
 
 button:hover {
-  background-color: #ff4c4c;
+  background-color: #ff4c4c; /* Более тёмный оттенок при наведении */
 }
 
+/* Кнопка для удаления всех вырезок */
 .delete-all {
-  display: block;
-  width: 100%;
-  margin-top: 20px;
-  background-color: #007bff;
+  display: block; /* Отображение кнопки как блочный элемент */
+  width: 100%; /* Кнопка занимает всю ширину контейнера */
+  margin-top: 20px; /* Отступ сверху */
+  background-color: #ff6666; /* Красный цвет фона */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 8px; /* Закругление углов */
+  padding: 10px 15px; /* Внутренний отступ */
+  font-weight: bold; /* Полужирный текст */
+  cursor: pointer; /* Указатель в виде руки */
+  transition: background-color 0.3s; /* Плавное изменение цвета фона */
 }
 
 .delete-all:hover {
-  background-color: #0056b3;
+  background-color: #ff4c4c; /* Изменение цвета фона при наведении */
 }
 
+/* Кнопка сохранения вырезки */
 .saveSnippet {
-  background-color: #28a745;
-  margin-left: 10px;
+  background-color: #28a745; /* Зелёный цвет фона */
+  margin-left: 10px; /* Отступ слева */
 }
 
 .saveSnippet:hover {
-  background-color: #218838;
+  background-color: #218838; /* Более тёмный зелёный цвет при наведении */
 }
 
+/* Контейнер для всех вырезок */
 #snippets {
-  max-height: 400px;
-  overflow-y: auto;
+  max-height: 400px; /* Максимальная высота блока */
+  overflow-y: auto; /* Добавление вертикальной прокрутки при необходимости */
 }
 
+/* Стили для блока, если нет сохранённых вырезок */
+.no-snippets {
+  text-align: center; /* Центрирование текста */
+  color: #ffffff; /* Белый цвет текста */
+  font-style: italic; /* Курсив */
+  margin-top: 20px; /* Отступ сверху */
+}
+
+/* Стили для изображения, если нет сохранённых вырезок */
+.no-snippets-image {
+  display: block; /* Отображение изображения как блочного элемента */
+  margin: 0 auto 10px; /* Центрирование и отступ снизу */
+  max-width: 200px; /* Максимальная ширина изображения */
+  height: auto; /* Автоматическая высота */
+  opacity: 0.8; /* Прозрачность изображения */
+}
+
+/* Выделенный фрагмент */
 .highlighted-snippet {
-    background-color: #ae00ff;
-    padding: 2px;
-    border-radius: 3px;
-    font-weight: bold;
-  }
-  
+  background-color: #ffff00; /* Жёлтый фон для выделения */
+  padding: 2px; /* Внутренний отступ */
+  border-radius: 3px; /* Закруглённые углы */
+}
+
+/* Контейнер для окна редактирования */
+.edit-container {
+  font-family: Arial, sans-serif; /* Шрифт Arial */
+  font-size: medium; /* Средний размер шрифта */
+  background: linear-gradient(135deg, #1a1f36, #313860); /* Градиентный фон */
+  background: url('brain.png') center/cover no-repeat; /* Фоновое изображение */
+  margin: 0; /* Отсутствие внешних отступов */
+  padding: 20px; /* Внутренний отступ */
+  color: #e0e0e0; /* Цвет текста */
+}
+
+/* Поле для ввода текста в окне редактирования */
+.edit-container textarea {
+  width: 100%; /* Поле занимает всю ширину контейнера */
+  height: 200px; /* Высота поля */
+  border-radius: 5px; /* Закругление углов */
+  padding: 10px; /* Внутренний отступ */
+  font-size: medium; /* Размер шрифта */
+  border: 1px solid #5961a3; /* Граница вокруг поля */
+  background-color: #3b3f51; /* Тёмный цвет фона */
+  color: #ffffff; /* Белый цвет текста */
+  font-family: Arial, sans-serif; /* Шрифт Arial */
+}
+
+/* Кнопки в окне редактирования */
+.edit-container button {
+  background-color: #28a745; /* Зелёный цвет фона */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругление углов */
+  padding: 10px 15px; /* Внутренний отступ */
+  cursor: pointer; /* Указатель в виде руки */
+  margin-right: 10px; /* Отступ справа */
+}
+
+.edit-container button:hover {
+  background-color: #218838; /* Изменение цвета при наведении */
+}
+
+/* Кнопка "Отмена" в окне редактирования */
+.edit-container #cancelEdit {
+  background-color: #ff6666; /* Красный цвет фона */
+}
+
+/* Контейнер для кнопок, чтобы они равномерно распределялись в строку */
+.button-container {
+  display: flex; /* Используем Flexbox для расположения кнопок в строку */
+  justify-content: space-between; /* Равномерное распределение кнопок */
+  gap: 10px; /* Расстояние между кнопками */
+  margin-top: 10px; /* Отступ сверху */
+}
+
+/* Кнопка редактирования — оранжевый цвет */
+.editSnippet {
+  background-color: #ff9800; /* Оранжевый цвет */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругление углов */
+  padding: 8px 12px; /* Внутренний отступ */
+  cursor: pointer; /* Указатель в виде руки */
+  transition: background-color 0.3s; /* Плавное изменение цвета фона */
+}
+
+.editSnippet:hover {
+  background-color: #fb8c00; /* Более насыщенный оранжевый при наведении */
+}
+
+/* Кнопка сохранения — зелёный цвет */
+.saveSnippet {
+  background-color: #28a745; /* Зелёный цвет */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругление углов */
+  padding: 8px 12px; /* Внутренний отступ */
+  cursor: pointer; /* Указатель в виде руки */
+  transition: background-color 0.3s; /* Плавное изменение цвета фона */
+}
+
+.saveSnippet:hover {
+  background-color: #218838; /* Более насыщенный зелёный при наведении */
+}
+
+/* Кнопка удаления — красный цвет */
+.deleteSnippet {
+  background-color: #f44336; /* Красный цвет */
+  color: white; /* Белый цвет текста */
+  border: none; /* Убираем рамку */
+  border-radius: 4px; /* Закругление углов */
+  padding: 8px 12px; /* Внутренний отступ */
+  cursor: pointer; /* Указатель в виде руки */
+  transition: background-color 0.3s; /* Плавное изменение цвета фона */
+}
+
+.deleteSnippet:hover {
+  background-color: #d32f2f; /* Более насыщенный красный при наведении */
+}
