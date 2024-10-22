@@ -92,18 +92,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // Добавляем обработчики событий для кнопок "Сохранить файлом"
+      // Добавляем обработчики событий для кнопок "Сохранить в формате Markdown"
       document.querySelectorAll('.saveSnippet').forEach(button => {
         button.addEventListener('click', (event) => {
           const index = event.target.getAttribute('data-index'); // Получаем индекс вырезки
           chrome.storage.local.get({ snippets: [] }, (result) => {
             const snippet = result.snippets[index];
-            // Создаём текстовый файл с содержимым вырезки
-            const blob = new Blob([`Текст: ${snippet.text}\nИсточник: ${snippet.url}\nДата: ${snippet.date}`], { type: 'text/plain' });
+
+            // Запрашиваем название заметки для связи
+           const relatedNote = prompt("Введите название связанной заметки (если есть):");
+
+           // Создаём Markdown контент с возможной ссылкой
+          let markdownContent = `# Заметка\n\n**Текст:** ${snippet.text}\n\n**Источник:** [${snippet.url}](${snippet.url})\n\n**Дата:** ${snippet.date}`;
+           if (relatedNote) {
+            markdownContent += `\n\nСмотрите также: [[${relatedNote}]]`;
+           }
+
+      // Сохраняем в файл .md
+            
+            const blob = new Blob([markdownContent], { type: 'text/markdown' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `snippet_${index + 1}.txt`; // Имя файла для сохранения
+            a.download = `заметка_${index + 1}.md`; // Имя файла для сохранения
             a.click(); // Запускаем скачивание файла
             URL.revokeObjectURL(url); // Освобождаем URL-ресурс
           });
