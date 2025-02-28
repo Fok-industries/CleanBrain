@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             largeText.document.write(`
               <html>
               <head>
-                <title>Редактировать текст</title>
+                <title>CleanBrain редактор текста</title>
                 <link rel="stylesheet" type="text/css" href="style.css">
               </head>
               <body class="edit-container">

@@ -191,7 +191,7 @@ button:hover {
 
 /* Кнопка редактирования — оранжевый цвет */
 .editSnippet {
-  background-color: #ff9800; /* Оранжевый цвет */
+  background-color: #d15ce6; /* Оранжевый цвет */
   color: white; /* Белый цвет текста */
   border: none; /* Убираем рамку */
   border-radius: 4px; /* Закругление углов */
@@ -206,7 +206,7 @@ button:hover {
 
 /* Кнопка сохранения — зелёный цвет */
 .saveSnippet {
-  background-color: #28a745; /* Зелёный цвет */
+  background-color: #951577; /* Зелёный цвет */
   color: white; /* Белый цвет текста */
   border: none; /* Убираем рамку */
   border-radius: 4px; /* Закругление углов */
@@ -221,7 +221,7 @@ button:hover {
 
 /* Кнопка удаления — красный цвет */
 .deleteSnippet {
-  background-color: #f44336; /* Красный цвет */
+  background-color: #952fc4; /* Красный цвет */
   color: white; /* Белый цвет текста */
   border: none; /* Убираем рамку */
   border-radius: 4px; /* Закругление углов */
