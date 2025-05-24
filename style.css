@@ -233,3 +233,53 @@ button:hover {
 .deleteSnippet:hover {
   background-color: #d32f2f; /* Более насыщенный красный при наведении */
 }
+
+
+/* стиль окна настроек */
+
+.settings-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-color: #1e1e2f;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #fff;
+  display: none;
+  overflow-y: auto;
+}
+
+.settings-modal h3 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.settings-modal label,
+.settings-modal select {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.settings-modal button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#saveSettings {
+  background-color: #28a745;
+  color: white;
+}
+
+#closeSettings {
+  background-color: #dc3545;
+  color: white;
+}

@@ -33,7 +33,46 @@
   </div>
   <!-- Кнопка шестерёнки (иконка настроек) -->
 <img src="settings.png" id="settingsIcon" alt="⚙" title="Настройки"
-style="position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; cursor: pointer;">
+style="position: absolute; top: 10px; right: 10px; width: 48px; height: 48px; cursor: pointer;">
+
+<!-- ⚙ Модальное окно с настройками -->
+<div id="settingsModal" class="settings-modal" style="display: none;">
+  <h3>Настройки сохранения</h3>
+
+<label>
+  <input type="checkbox" id="autosaveToggle">
+  Вводить название связи вручную
+</label>
+
+<br>
+
+<label for="formatSelect">Формат файла:</label>
+<select id="formatSelect">
+  <option value="md">Markdown (.md)</option>
+  <option value="txt">Текст (.txt)</option>
+  <option value="rdf">RDF (.ttl)</option>
+</select>
+
+<br>
+
+<label for="linkTypeSelect">Тип связи между заметками:</label>
+<select id="linkTypeSelect">
+  <option value="double-bracket">[[note]]</option>
+  <option value="hashtag">#тег</option>
+  <option value="uri">URI</option>
+</select>
+
+<label for="defaultLinkText">Название связи (если ввод вручную отключён):</label>
+<input type="text" id="defaultLinkText" placeholder="например: машины">
+
+
+
+
+<br><br>
+
+<button id="saveSettings">Сохранить</button>
+<button id="closeSettings">Закрыть</button>
+</div>
 
 </body>
 </html>
