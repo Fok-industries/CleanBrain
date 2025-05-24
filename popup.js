@@ -140,26 +140,37 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             }
 
-            // Форматы
-            const plain = `Текст: ${snippet.text}\nИсточник: ${snippet.url}\nДата: ${snippet.date}${linkLine}`;
-            const markdown = `# Заметка\n\n**Текст:** ${snippet.text}\n\n**Источник:** [${snippet.url}](${snippet.url})\n\n**Дата:** ${snippet.date}${linkLine}`;
            // Генерация читаемого URI на основе первых 3–4 слов заметки
             const rawTitle = (snippet.text || "").split(" ").slice(0, 4).join("_").toLowerCase();
             const titleId = encodeURIComponent(rawTitle || `snippet${index + 1}`);
+            const baseUri = `http://cleanbrain.local/note/${titleId}`;
 
-            // RDF с читаемым URI
-            const rdf = `@prefix dc: <http://purl.org/dc/elements/1.1/> .\n<http://cleanbrain.local/note/${titleId}>\ndc:title "${snippet.text}" ;\ndc:source <${snippet.url}> ;\ndc:date "${snippet.date}" .`;
+// RDF с отношением rel:relatedTo, если тип связи — URI
+            let rdf = `@prefix dc: <http://purl.org/dc/elements/1.1/> .\n@prefix rel: <http://purl.org/vocab/relationship/> .\n\n<${baseUri}>\n  dc:title "${snippet.text}" ;\n  dc:source <${snippet.url}> ;\n  dc:date "${snippet.date}"`;
 
-            let content = markdown, mime = "text/markdown", filename = `заметка_${index + 1}.md`;
-            if (settings.format === "txt") {
-              content = plain;
-              mime = "text/plain";
+            if (relatedNote.trim() && settings.linkType === "uri") {
+               const relatedUri = `http://cleanbrain.local/note/${encodeURIComponent(relatedNote)}`;
+               rdf += ` ;\n  rel:relatedTo <${relatedUri}>`;
+              }
+
+              rdf += ` .`;
+
+// Markdown и текстовые форматы
+              const plain = `Текст: ${snippet.text}\nИсточник: ${snippet.url}\nДата: ${snippet.date}${linkLine}`;
+              const markdown = `# Заметка\n\n**Текст:** ${snippet.text}\n\n**Источник:** [${snippet.url}](${snippet.url})\n\n**Дата:** ${snippet.date}${linkLine}`;
+
+// Определение типа файла
+              let content = markdown, mime = "text/markdown", filename = `заметка_${index + 1}.md`;
+                if (settings.format === "txt") {
+                content = plain;
+               mime = "text/plain";
               filename = `заметка_${index + 1}.txt`;
-            } else if (settings.format === "rdf") {
-              content = rdf;
-              mime = "text/turtle";
-              filename = `заметка_${index + 1}.ttl`;
-            }
+                } else if (settings.format === "rdf") {
+                   content = rdf;
+                    mime = "text/turtle";
+                    filename = `заметка_${index + 1}.ttl`;
+                    }
+
 
             // Скачивание
             const blob = new Blob([content], { type: mime });
