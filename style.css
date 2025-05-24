@@ -191,7 +191,7 @@ button:hover {
 
 /* Кнопка редактирования — оранжевый цвет */
 .editSnippet {
-  background-color: #d15ce6; /* Оранжевый цвет */
+  background-color: #952fc4; /* Оранжевый цвет */
   color: white; /* Белый цвет текста */
   border: none; /* Убираем рамку */
   border-radius: 4px; /* Закругление углов */
@@ -206,7 +206,7 @@ button:hover {
 
 /* Кнопка сохранения — зелёный цвет */
 .saveSnippet {
-  background-color: #951577; /* Зелёный цвет */
+  background-color: #952fc4; /* Зелёный цвет */
   color: white; /* Белый цвет текста */
   border: none; /* Убираем рамку */
   border-radius: 4px; /* Закругление углов */
@@ -282,4 +282,76 @@ button:hover {
 #closeSettings {
   background-color: #dc3545;
   color: white;
+}
+
+
+
+/* чил */
+
+
+/* --- Улучшенная иконка настроек --- */
+#settingsIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+#settingsIcon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* --- Заголовок и слоган --- */
+.header-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.header-container h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.header-container p {
+  font-size: 14px;
+  color: #bdbdbd;
+  margin: 0;
+  padding: 0 10px;
+}
+
+/* --- Ровные кнопки внизу блока с вырезкой --- */
+.button-container button {
+  flex: 1;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.button-container button:hover {
+  transform: scale(1.02);
+}
+
+/* --- Ещё немного "воздуха" между элементами --- */
+.snippet-block {
+  margin-bottom: 20px;
+}
+
+#snippets {
+  padding-bottom: 20px;
+}
+
+
+.snippet-block {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.snippet-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
