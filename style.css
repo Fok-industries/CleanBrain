@@ -189,6 +189,9 @@ button:hover {
   margin-top: 10px; /* Отступ сверху */
 }
 
+
+
+
 /* Кнопка редактирования — оранжевый цвет */
 .editSnippet {
   background-color: #952fc4; /* Оранжевый цвет */
@@ -410,4 +413,147 @@ html {
 }
 #snippets::-webkit-scrollbar {
   display: none;                /* Chrome, Safari */
+}
+
+
+/* --- СТИЛЬНОЕ МЕНЮ НАСТРОЕК --- */
+.settings-modal {
+  background-image: url('brain.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  color: white;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+}
+
+.modalContent {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.modalContent h3 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Селекты и input'ы */
+.modalContent select,
+.modalContent input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid #666;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.modalContent select:focus,
+.modalContent input[type="text"]:focus {
+  outline: none;
+  border-color: #bb86fc;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Чекбокс стили */
+.modalContent label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  background-color: #222;
+  cursor: pointer;
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+}
+
+.modalContent label input[type="checkbox"]:checked {
+  background-color: #952fc4;
+  border-color: #952fc4;
+}
+
+.modalContent label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #e0e0e0;
+}
+
+/* Кнопки сохранения и закрытия */
+#saveSettings,
+#closeSettings {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 48%;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#saveSettings {
+  background-color: #952fc4;
+  color: white;
+}
+
+#saveSettings:hover {
+  background-color: #7a1fb3;
+  transform: scale(1.05);
+}
+
+#closeSettings {
+  background-color: #d32f2f;
+  color: white;
+}
+
+#closeSettings:hover {
+  background-color: #a21d1d;
+  transform: scale(1.05);
+}
+
+/* Контейнер кнопок */
+.modalContent .button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+
+
+/* Убедимся, что выпадающее меню select не перекрывается фоном */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid #777;
+  padding: 10px;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1000; /* Важно: поверх всего */
+}
+
+/* Контейнер модального окна должен позволять overflow по Y */
+.settings-modal {
+  overflow: visible !important;
+  z-index: 1000; /* Поверх других элементов */
+}
+
+/* Иногда помогает отдельно указать для select и его опций */
+select option {
+  background-color: #1e1e2f;
+  color: white;
 }

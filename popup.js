@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <p><strong>Дата:</strong> ${snippet.date}</p>
                                     <div class="button-container">
                                       <button class="saveSnippet" data-index="${index}">Сохранить файл</button>
-                                      <button class="editSnippet" data-index="${index}">Редактировать</button>
+                                      <button class="editSnippet" data-index="${index}">Редактор</button>
                                       <button class="deleteSnippet" data-index="${index}">Удалить</button>
                                     </div>`;
         snippetsDiv.appendChild(snippetElement);

@@ -37,46 +37,40 @@ style="position: absolute; top: 10px; right: 10px; width: 48px; height: 48px; cu
 
 <!-- ⚙ Модальное окно с настройками -->
 <div id="settingsModal" class="settings-modal" style="display: none;">
-   <div class="modalContent">
-  <img src="settings.png" alt="Brain" style="display:block; margin: 10px auto; width: 100px;">
-  
-  <h3>Настройки сохранения</h3>
+  <div class="modalContent">
+    <img src="settings.png" alt="Brain" style="display:block; margin: 10px auto; width: 80px;">
+    
+    <h3>Настройки сохранения</h3>
 
-<label>
-  <input type="checkbox" id="autosaveToggle">
-  Вводить название связи вручную
-</label>
+    <label>
+      <input type="checkbox" id="autosaveToggle">
+      Вводить название связи вручную
+    </label>
 
-<br>
+    <label for="formatSelect">Формат файла:</label>
+    <select id="formatSelect">
+      <option value="md">Markdown (.md)</option>
+      <option value="txt">Текст (.txt)</option>
+      <option value="rdf">RDF (.ttl)</option>
+    </select>
 
-<label for="formatSelect">Формат файла:</label>
-<select id="formatSelect">
-  <option value="md">Markdown (.md)</option>
-  <option value="txt">Текст (.txt)</option>
-  <option value="rdf">RDF (.ttl)</option>
-</select>
+    <label for="linkTypeSelect">Тип связи между заметками:</label>
+    <select id="linkTypeSelect">
+      <option value="double-bracket">[[note]]</option>
+      <option value="hashtag">#тег</option>
+      <option value="uri">URI</option>
+    </select>
 
-<br>
+    <label for="defaultLinkText">Название связи (если ввод вручную отключён):</label>
+    <input type="text" id="defaultLinkText" placeholder="например: машины">
 
-<label for="linkTypeSelect">Тип связи между заметками:</label>
-<select id="linkTypeSelect">
-  <option value="double-bracket">[[note]]</option>
-  <option value="hashtag">#тег</option>
-  <option value="uri">URI</option>
-</select>
-
-<label for="defaultLinkText">Название связи (если ввод вручную отключён):</label>
-<input type="text" id="defaultLinkText" placeholder="например: машины">
-
-
-
-
-<br><br>
-
-<button id="saveSettings">Сохранить</button>
-<button id="closeSettings">Закрыть</button>
+    <div class="button-row">
+      <button id="saveSettings">Сохранить</button>
+      <button id="closeSettings">Закрыть</button>
+    </div>
+  </div>
 </div>
-</div>
+
 
 </body>
 </html>
