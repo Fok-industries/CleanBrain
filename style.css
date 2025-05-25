@@ -355,3 +355,59 @@ button:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
+
+
+
+/* тест окна настроек */
+
+#settingsModal {
+  background-image: url('brain.png');  /* путь к изображению */
+  background-size: cover;              /* растягивает на весь блок */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  color: white;                        /* чтобы текст был читаемым */
+  border-radius: 12px;
+  backdrop-filter: blur(3px);          /* мягкий эффект на фоне */
+}
+
+.modalContent {
+  background-color: rgba(0, 0, 0, 0.6); /* полупрозрачный тёмный фон */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* минус полоски прокрутки */
+body::-webkit-scrollbar,
+#settingsModal::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Убираем горизонтальную прокрутку */
+body {
+  overflow-x: hidden;
+}
+
+/* Также на всякий случай для всего */
+html {
+  overflow-x: hidden;
+}
+#snippets {
+  overflow-x: hidden;
+}
+
+.snippet-block {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
+
+#snippets {
+  max-height: 400px;
+  overflow-y: scroll;
+  scrollbar-width: none;        /* Firefox */
+}
+#snippets::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
