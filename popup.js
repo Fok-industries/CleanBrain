@@ -73,35 +73,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Редактирование
       document.querySelectorAll('.editSnippet').forEach(button => {
-        button.addEventListener('click', (event) => {
-          const index = event.target.getAttribute('data-index');
-          const snippet = snippets[index];
-          const largeText = window.open('', '', 'width=600,height=400');
-          largeText.document.write(`
-            <html><head><title>Редактировать</title>
-            <link rel="stylesheet" href="style.css">
-            </head><body class="edit-container">
-            <textarea id="editText">${snippet.text}</textarea>
-            <br><br>
-            <button id="saveEdit">Сохранить</button>
-            <button id="cancelEdit">Отмена</button>
-            </body></html>
-          `);
-          largeText.onload = function () {
-            largeText.document.getElementById("saveEdit").addEventListener("click", () => {
-              const updated = largeText.document.getElementById('editText').value;
-              if (updated.trim()) {
-                snippets[index].text = updated;
-                chrome.storage.local.set({ snippets }, () => location.reload());
-                largeText.close();
-              } else {
-                alert('Текст не может быть пустым.');
-              }
-            });
-            largeText.document.getElementById("cancelEdit").addEventListener("click", () => largeText.close());
-          };
-        });
+  button.addEventListener('click', (event) => {
+    const index = event.target.getAttribute('data-index');
+    const snippet = snippets[index];
+    const largeText = window.open('', '', 'width=600,height=400');
+
+    largeText.document.write(`
+      <html>
+        <head>
+          <title>Редактировать</title>
+          <link rel="stylesheet" href="style.css">
+        </head>
+        <body class="edit-container">
+          <textarea id="editText">${snippet.text}</textarea>
+          <div class="button-container">
+            <button id="saveEdit" class="edit-action save">Сохранить</button>
+            <button id="cancelEdit" class="edit-action cancel">Отмена</button>
+          </div>
+        </body>
+      </html>
+    `);
+
+    // КЛЮЧЕВОЙ момент — ждём полной загрузки документа:
+    largeText.document.close(); // важно! завершить поток записи
+    largeText.onload = () => {
+      const saveBtn = largeText.document.getElementById("saveEdit");
+      const cancelBtn = largeText.document.getElementById("cancelEdit");
+      const textarea = largeText.document.getElementById("editText");
+
+      saveBtn.addEventListener("click", () => {
+        const updated = textarea.value;
+        if (updated.trim()) {
+          snippets[index].text = updated;
+          chrome.storage.local.set({ snippets }, () => location.reload());
+          largeText.close();
+        } else {
+          alert('Текст не может быть пустым.');
+        }
       });
+
+      cancelBtn.addEventListener("click", () => largeText.close());
+    };
+  });
+});
+
 
       // Удаление
       document.querySelectorAll('.deleteSnippet').forEach(button => {

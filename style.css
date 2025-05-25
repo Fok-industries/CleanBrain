@@ -557,3 +557,39 @@ select option {
   background-color: #1e1e2f;
   color: white;
 }
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.edit-action {
+  flex: 1;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Сохранить */
+.edit-action.save {
+  background-color: #952fc4;
+}
+.edit-action.save:hover {
+  background-color: #7a24a5;
+  transform: scale(1.02);
+}
+
+/* Отмена */
+.edit-action.cancel {
+  background-color: #dc3545;
+}
+.edit-action.cancel:hover {
+  background-color: #b02a37;
+  transform: scale(1.02);
+}
