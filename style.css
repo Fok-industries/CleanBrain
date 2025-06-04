@@ -8,6 +8,10 @@ body {
   min-width: 400px; /* Минимальная ширина окна */
   min-height: 600px; /* Минимальная высота окна */
   color: #e0e0e0; /* Цвет текста, чтобы он хорошо сочетался с тёмным фоном */
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #1a1f36, #313860); /* Фон: тёмно-синий градиент */
+
 }
 
 /* Контейнер для всего содержимого расширения */
@@ -76,6 +80,7 @@ button {
 
 button:hover {
   background-color: #ff4c4c; /* Более тёмный оттенок при наведении */
+  box-shadow: 0 0 6px #952fc4, 0 0 12px #952fc4;
 }
 
 /* Кнопка для удаления всех вырезок */
@@ -387,10 +392,6 @@ body::-webkit-scrollbar,
   height: 0px;
 }
 
-/* Убираем горизонтальную прокрутку */
-body {
-  overflow-x: hidden;
-}
 
 /* Также на всякий случай для всего */
 html {
@@ -666,3 +667,4 @@ select option {
     transform: translateY(0);
   }
 }
+
