@@ -608,13 +608,34 @@ select option {
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.5s;
+  box-shadow: 0 5px 15px 0 rgba(149, 47, 196, 0.7); /* стартовая тень */
+  overflow: hidden;
+  position: relative;
 }
 
 .primary-button:hover {
   background-color: #7a24a5;
-  transform: scale(1.03);
+  transform: scale(1.03) translateY(-3px); /* добавим лёгкий подъём */
+  box-shadow: 0 20px 40px 0 rgba(149, 47, 196, 0.8); /* усиление тени */
 }
+
+/* Анимация блика */
+.primary-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 60px;
+  height: 100px;
+  background-color: #fff;
+  filter: blur(30px);
+  transform: skewX(30deg) translateZ(0);
+  animation: slideme 3s ease 0.05s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
 
 
 .modalContent {
@@ -670,3 +691,46 @@ select option {
   }
 }
 
+
+@keyframes slideme {
+  0% {
+    left: -30px;
+    margin-left: 0px;
+  }
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+  100% {
+    left: 110%;
+    margin-left: 80px;
+  }
+}
+
+
+.fancy-button {
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.5s;
+  box-shadow: 0 5px 15px 0 rgba(149, 47, 196, 0.7);
+}
+
+.fancy-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px 0 rgba(149, 47, 196, 0.8);
+}
+
+.fancy-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 60px;
+  height: 100px;
+  background-color: #fff;
+  filter: blur(30px);
+  transform: skewX(30deg) translateZ(0);
+  animation: slideme 3s ease 0.05s infinite;
+  z-index: 1;
+  pointer-events: none;
+}

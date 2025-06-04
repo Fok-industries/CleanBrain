@@ -60,14 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
         snippetElement.classList.add("snippet-block");
         const shortenedUrl = snippet.url.length > 50 ? snippet.url.substring(0, 50) + '...' : snippet.url;
 
-        snippetElement.innerHTML = `<p><strong>Текст:</strong> ${snippet.text}</p>
-                                    <p><strong>Источник:</strong> <a href="${snippet.url}" target="_blank">${shortenedUrl}</a></p>
-                                    <p><strong>Дата:</strong> ${snippet.date}</p>
-                                    <div class="button-container">
-                                      <button class="saveSnippet" data-index="${index}">Сохранить файл</button>
-                                      <button class="editSnippet" data-index="${index}">Редактор</button>
-                                      <button class="deleteSnippet" data-index="${index}">Удалить</button>
-                                    </div>`;
+        snippetElement.innerHTML = `
+  <p><strong>Текст:</strong> ${snippet.text}</p>
+  <p><strong>Источник:</strong> <a href="${snippet.url}" target="_blank">${shortenedUrl}</a></p>
+  <p><strong>Дата:</strong> ${snippet.date}</p>
+  <div class="button-container">
+    <button class="saveSnippet fancy-button" data-index="${index}">Сохранить файл</button>
+    <button class="editSnippet fancy-button" data-index="${index}">Редактор</button>
+    <button class="deleteSnippet fancy-button" data-index="${index}">Удалить</button>
+  </div>`;
+
         snippetsDiv.appendChild(snippetElement);
       });
 
@@ -79,20 +81,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const largeText = window.open('', '', 'width=600,height=400');
 
     largeText.document.write(`
-      <html>
-        <head>
-          <title>Редактировать</title>
-          <link rel="stylesheet" href="style.css">
-        </head>
-        <body class="edit-container">
-          <textarea id="editText">${snippet.text}</textarea>
-          <div class="button-container">
-            <button id="saveEdit" class="edit-action save">Сохранить</button>
-            <button id="cancelEdit" class="edit-action cancel">Отмена</button>
-          </div>
-        </body>
-      </html>
-    `);
+  <html>
+    <head>
+      <title>Редактировать</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="edit-container">
+      <textarea id="editText">${snippet.text}</textarea>
+      <div class="button-container">
+        <button id="saveEdit" class="edit-action save fancy-button">Сохранить</button>
+        <button id="cancelEdit" class="edit-action cancel fancy-button">Отмена</button>
+      </div>
+    </body>
+  </html>
+`);
+
 
     // КЛЮЧЕВОЙ момент — ждём полной загрузки документа:
     largeText.document.close(); // важно! завершить поток записи

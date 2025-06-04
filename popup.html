@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>CleanBrain - Saved Snippets</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+ 
 
   <script src="popup.js"></script>
   <style>
@@ -37,6 +37,9 @@
 <img src="settings.png" id="settingsIcon" alt="⚙" title="Настройки"
 style="position: absolute; top: 10px; right: 10px; width: 48px; height: 48px; cursor: pointer;">
 
+<!-- Кнопка удаления всех вырезок -->
+<button id="deleteAll" class="delete-all fancy-button">Удалить все</button>
+
 <!-- ⚙ Модальное окно с настройками -->
 <div id="settingsModal" class="settings-modal" style="display: none;">
   <div class="modalContent">
@@ -67,8 +70,8 @@ style="position: absolute; top: 10px; right: 10px; width: 48px; height: 48px; cu
     <input type="text" id="defaultLinkText" placeholder="например: машины">
 
     <div class="button-row">
-      <button id="saveSettings" class="primary-button">Сохранить</button>
-      <button id="closeSettings" class="primary-button">Закрыть</button>
+      <button id="saveSettings" class="primary-button fancy-button">Сохранить</button>
+      <button id="closeSettings" class="primary-button fancy-button">Закрыть</button>
 
     </div>
   </div>
