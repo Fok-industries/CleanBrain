@@ -11,6 +11,7 @@ body {
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #1a1f36, #313860); /* Фон: тёмно-синий градиент */
+  
 
 }
 
@@ -383,6 +384,7 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.6); /* полупрозрачный тёмный фон */
   padding: 20px;
   border-radius: 10px;
+  
 }
 
 /* минус полоски прокрутки */
